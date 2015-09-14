@@ -1,3 +1,31 @@
 h1 {
   color: green;
 }
+
+div.navigation {
+    position: fixed;
+    /*bottom: 0;
+    right: 0;*/
+    width: 100%;
+    height: 50px;
+    border: 3px solid #8AC007;
+}
+
+
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+  float: left;
+  display: inline;
+  width: 10%;
+}
+
+div.welcome {
+  position: relative;
+  top: 200px;
+}
