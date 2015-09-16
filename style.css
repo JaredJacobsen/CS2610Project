@@ -1,7 +1,56 @@
+/*------------------------------------*\
+              ¡CLASSES
+\*------------------------------------*/
+
+div.welcome {
+  width: 100%;
+  margin-top: 100px;
+}
+    .welcome h1 {
+      text-align: center;
+      width: 100%;
+      color: #696969;
+    }
+    .welcome p {
+      text-align: center;
+      margin-top: 100px;
+      width: 100%;
+    }
+/*------------------------------------*\
+              ¡BUTTONS
+\*------------------------------------*/
+
+div.buttons {
+  margin-top: 100px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  background: #FFF;
+  border: solid 1px #CCC;
+  height: 25px;
+  text-align: center;
+  width: 75px;
+}
+
+/*------------------------------------*\
+              ¡GENERAL
+\*------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .wrap {
   position: relative;
   height: 100%;
 }
+
+/*------------------------------------*\
+              ¡NAV
+\*------------------------------------*/
 
 div.navigation {
     position: fixed;
@@ -19,34 +68,3 @@ div.navigation {
         display: inline;
         width: 10%;
       }
-
-div.welcome {
-  width: 100%;
-  margin-top: 100px;
-}
-    .welcome h1 {
-      text-align: center;
-      width: 100%;
-      color: #696969;
-    }
-    .welcome p {
-      text-align: center;
-      margin-top: 100px;
-      width: 100%;
-    }
-
-
-div.buttons {
-  margin-top: 100px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn {
-  background: #FFF;
-  border: solid 1px #CCC;
-  height: 25px;
-  text-align: center;
-  width: 75px;
-}
