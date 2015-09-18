@@ -4,28 +4,31 @@
 
 div.welcome {
   width: 100%;
-  margin-top: 100px;
 }
     .welcome h1 {
       text-align: center;
+      margin-bottom: 50px;
       width: 100%;
       color: #696969;
     }
     .welcome p {
       text-align: center;
-      margin-top: 100px;
-      width: 100%;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
     }
 /*------------------------------------*\
               ¡BUTTONS
 \*------------------------------------*/
 
 div.buttons {
-  margin-top: 100px;
-  width: 100%;
+  width: 100px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 .btn {
   background: #FFF;
@@ -44,17 +47,11 @@ div.buttons {
   text-decoration: none;
 }
 
-.wrap {
-  position: relative;
-  height: 100%;
-}
-
 /*------------------------------------*\
               ¡NAV
 \*------------------------------------*/
 
 div.navigation {
-    position: absolute 0px;
     width: 100%;
     height: 20px;
     border: 3px solid #800000;
