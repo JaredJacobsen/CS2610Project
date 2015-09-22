@@ -1,0 +1,31 @@
+body{
+  background-color: #9999FF;
+}
+.profileImage{
+  width: 100%;
+}
+
+.profileImage img{
+  width: 200px;
+  height: 200px;
+  margin-top: 75px;
+  margin-left: 100px;
+}
+
+.username{
+  width: 200px;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+.input{
+  with:100%;
+  margin-top: 20px;
+  margin-left: 100px;
+}
+
+.input input{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
