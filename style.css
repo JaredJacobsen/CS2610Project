@@ -7,7 +7,7 @@ div.welcome {
 }
     .welcome h1 {
       text-align: center;
-      margin-top: 200px;
+      margin-top: 150px;
       margin-bottom: 50px;
       width: 100%;
       color: #696969;
@@ -62,6 +62,7 @@ div.navigation {
 }
       div.navigation nav {
         margin-left: 10%;
+        margin-top: 5px;
         height: 100%;
         width: 60%;
         list-style-type: none;
@@ -80,5 +81,6 @@ div.navigation {
       div.navigation p {
         float: left;
         margin-left: 10%;
+        margin-top: 5px;
         font-size: 120%;
       }
