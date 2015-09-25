@@ -80,7 +80,7 @@ div.navigation {
       }
       div.navigation p {
         float: left;
+        width: 15%;
         margin-left: 10%;
-        margin-top: 5px;
         font-size: 120%;
       }
