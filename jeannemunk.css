@@ -20,7 +20,7 @@ body{
 }
 
 .input{
-  with:100%;
+  width:100%;
   margin-top: 20px;
   margin-left: 100px;
 }
