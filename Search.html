@@ -3,7 +3,10 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <title>Profile</title>
+  <link rel="stylesheet" type="text/css" href="MichaelK.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="javascript/main.js"></script>
+  <title>Search</title>
 </head>
   <body>
     <div CLASS='navigation'>
@@ -14,6 +17,17 @@
         <a href="Search.html">Search</a>
         <a href="index.html">Logout</a>
       </nav>
-      <div>
+	  <p>Welcome, [Username] </p>
+    </div>
+	<div CLASS='SearchBarHeader'>
+		<h1> Enter the hashtags below related to search for related posts on instagram: </h1>
+	</div>
+	<div CLASS='SearchBar'>		
+		<form action="" id="search-form">
+			<input type="text" id="search" name="search" placeholder="Search" />
+	</div>
+	<div CLASS="savedSearchButton">
+		<a href="SavedSearches.html"> Saved Searches </a>
+	</div>
   </body>
 </html>
