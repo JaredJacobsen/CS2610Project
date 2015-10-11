@@ -1,0 +1,87 @@
+/*------------------------------------*\
+              ¡CLASSES
+\*------------------------------------*/
+
+div.welcome {
+  width: 100%;
+}
+    .welcome h1 {
+      text-align: center;
+      margin-top: 150px;
+      margin-bottom: 50px;
+      width: 100%;
+      color: #696969;
+    }
+    .welcome p {
+      text-align: center;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
+    }
+/*------------------------------------*\
+              ¡BUTTONS
+\*------------------------------------*/
+
+div.buttons {
+  width: 100px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.btn {
+  background: #FFF;
+  border: solid 1px #CCC;
+  height: 25px;
+  text-align: center;
+  width: 75px;
+}
+
+/*------------------------------------*\
+              ¡GENERAL
+\*------------------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+/*------------------------------------*\
+              ¡NAV
+\*------------------------------------*/
+
+div.navigation {
+    width: 100%;
+    height: 30px;
+}
+      div.navigation nav {
+        margin-left: 10%;
+        margin-top: 5px;
+        height: 25px;
+        width: 60%;
+        list-style-type: none;
+        border: 3px solid #800000;
+        float: left;
+      }
+      div.navigation a {
+        float: left;
+		    text-align: center;
+        width: 20%;
+        height: 100%;
+        border: 1.5px solid #800000;
+        border-bottom: 0px;
+        border-top: 0px;
+      }
+      div.navigation p {
+        float: left;
+        width: 15%;
+        margin-left: 10%;
+        margin-top: 5px;
+        font-size: 120%;
+      }
