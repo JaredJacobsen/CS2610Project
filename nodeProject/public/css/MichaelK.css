@@ -1,0 +1,57 @@
+/*------------------------------------*\
+				SearchBar
+\*------------------------------------*/
+
+.searchBarHeader  h1{
+	margin-left: 10%;
+	margin-top: 20px;
+	float: left;
+	width: 100%;
+	font-size: 16px;
+	font-weight: normal;
+	border-radius: 20px;
+}
+
+.searchBar {
+	position: relative;
+	margin-left: 10%;
+	width: 100%;
+	margin-top: 5px;
+	float:left;
+}
+
+.savedSearchButton {
+	position: relative;
+	float: left;
+	margin-left: 10%;
+	margin-top: 30px;
+	line-height:35px;
+	background-color: #f2f5f6;
+	border-style: outset;
+	float: left;
+}
+
+/*------------------------------------*\
+		Hashtag Search Results
+\*------------------------------------*/
+
+.displayHashtags {
+	float: left;
+	width: 25%;
+	margin:1% 1% 1% 1%;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 30px;
+	border: 2px solid #2a2a2a;	
+}
+
+.displayHashtags:nth-child(2n) {
+
+}
+
+#search {
+	border-radius: 20px;
+	border-color: a8a8a8;
+	width: 450px;
+	height: 25px;
+}

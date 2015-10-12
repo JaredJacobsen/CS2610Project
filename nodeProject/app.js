@@ -3,7 +3,8 @@ var express 	= require('express')
 	, path      = require('path')
   , port      = 3000
 	, indexRoute = require('./routes/nonUserRoutes/indexRoute.js')
-	
+	, userRoutes = require('./routes/userRoutes/userRoutes.js')
+
 
 
 var app = express();
@@ -14,12 +15,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRoute);
-
-app.get('/profile', function(req, res) {
-  res.render('profile', {
-    title: 'Profile Page',
-  })
-})
+app.use('/user', userRoutes);
 
 app.listen(port)
 
