@@ -2,7 +2,9 @@ var express 	= require('express')
 	, exphbs		= require('express-handlebars')
 	, path      = require('path')
   , port      = 3000
-	, router 	= express.Router();
+	, indexRoute = require('./routes/nonUserRoutes/indexRoute.js')
+	
+
 
 var app = express();
 
@@ -11,13 +13,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res) {
-  res.render('index', {
-    title: 'This is a title!',
-    welcome: 'Welcome to the site!'
-  })
-})
-
+app.use('/', indexRoute);
 
 app.get('/profile', function(req, res) {
   res.render('profile', {
