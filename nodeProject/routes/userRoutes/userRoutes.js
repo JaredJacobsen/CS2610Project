@@ -10,7 +10,13 @@ router.get('/dashboard', function(req, res) {
 
 router.get('/profile', function(req, res) {
   res.render('profile', {
+    title: "User Profile"
+  })
+})
 
+router.get('/savedSearches', function(req, res) {
+  res.render('savedSearches', {
+    title: "Saved Searches"
   })
 })
 module.exports = router
