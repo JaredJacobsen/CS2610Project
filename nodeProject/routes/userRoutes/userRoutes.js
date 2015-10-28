@@ -10,8 +10,22 @@ router.get('/dashboard', function(req, res) {
 
 router.get('/profile', function(req, res) {
   res.render('profile', {
-    title: "User Profile"
+    title: "User Profile",
+    username: "[USERNAME]"
   })
+})
+
+router.post('/profile', function (req, res) {
+  var form = req.body
+  if(form.userName == 'jeannemunk'){
+    res.render('profile', {
+      username: form.userName
+    })
+  }else{
+    res.render('profile', {
+      error: 'Incorrect login details'
+    })
+  }
 })
 
 router.get('/savedSearches', function(req, res) {
@@ -19,4 +33,5 @@ router.get('/savedSearches', function(req, res) {
     title: "Saved Searches"
   })
 })
+
 module.exports = router

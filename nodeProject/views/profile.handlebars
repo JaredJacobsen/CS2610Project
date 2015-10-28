@@ -4,19 +4,25 @@
   <img src="/images/ProfilePlaceholder.png" alt="Profile Pic Placehoder">
 </div>
 <div class="username">
-  <h2>[Username]</h2>
+  <h2>{{ username }}</h2>
 </div>
+
 <div class="input">
-  <form class="information">
-    Name:<br>
-    <input class="infoName" type="text" name="name">
-    <br>
-    Email:<br>
-    <input type="text" name="email">
-    <br>
-    Bio:<br>
-    <input type="text" name="bio">
-    <br>
+  <p style="color: red;"> {{error}} </p>
+
+  <form class="information" action="" method="post">
+    <p>
+      <label for="userName">Name: </label>
+      <input type="text" name="userName">
+    </p>
+    <p>
+      <label for="email">Email: </label>
+      <input type="text" name="email">
+    </p>
+    <p>
+      <label for="bio">Bio: </label>
+      <input type="text" name="bio">
+    </p>
     <input class="submit" type="submit" value="Submit">
     <br>
   </form>
