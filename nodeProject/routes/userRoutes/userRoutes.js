@@ -28,6 +28,10 @@ router.post('/profile', function (req, res) {
   }
 })
 
+router.get('/search', function(req, res) {
+  res.render('search')
+})
+
 router.get('/savedSearches', function(req, res) {
   res.render('savedSearches', {
     title: "Saved Searches"
