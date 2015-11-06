@@ -2,6 +2,9 @@ var express 	= require('express')
 	, exphbs		= require('express-handlebars')
 	, request = require('request')
   , bodyParser = require('body-parser')
+	, querystring = require('querystring')
+	, session = require('express-session')
+	, cfg = require('./config')
 	, path      = require('path')
   , port      = 3000
 	, indexRoute = require('./routes/nonUserRoutes/indexRoute.js')
@@ -15,6 +18,13 @@ app.engine('handlebars', exphbs({defaultLayout: 'auth_base'}));
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(session({
+  cookieName: 'session',
+  secret: 'peanutButter',
+  resave: false,
+  saveUninitialized: true
+}))
 
 app.use(express.static(path.join(__dirname, 'public')));
 
