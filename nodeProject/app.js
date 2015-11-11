@@ -57,7 +57,7 @@ app.get('/auth/finalize', function(req, res) {
   request.post(options, function(error, response, body) {
     var data = JSON.parse(body)
     req.session.access_token = data.access_token
-    console.log(data)
+    //console.log(data)
     res.redirect('/user/dashboard')
   })
 })
