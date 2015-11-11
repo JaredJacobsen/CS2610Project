@@ -18,9 +18,18 @@ router.get('/dashboard', function(req, res) {
 })
 
 router.get('/profile', function(req, res) {
-  res.render('profile', {
-    title: "User Profile",
-    username: "[USERNAME]"
+  var options = {
+    url: 'https://api.instagram.com/v1/users/self/?access_token=' + req.session.access_token
+  }
+
+ request.get(options, function(error, response, body) {
+    var user = JSON.parse(body)
+    res.render('profile', {
+      title: "User Profile",
+      user: user.data,
+      css: "/css/jeannemunk.css",
+
+    })
   })
 })
 
