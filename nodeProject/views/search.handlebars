@@ -1,3 +1,4 @@
+<link rel="stylesheet" href = "/css/JaredJ.css">
 <div CLASS='searchBarHeader'>
 	<h2> Search hashtags below: </h2>
 </div>
@@ -5,14 +6,13 @@
 	<form class = "searhForm" action="" method = "post" id="search-form">
 		<input type="text" id="search" name="search" placeholder="Search" />
 	</form>
-</div class = "results">
-	<p>
-		{{#each result}}
-			{{this.name}}
-	  {{/each}}
-	</p>
-<div>
 </div>
 <div CLASS="savedSearchButton">
 	<a href="savedSearches"> Saved Searches </a>
+</div>
+
+<div class="results">
+	{{#each result}}
+		{{> instagramBox }}
+	{{/each}}
 </div>

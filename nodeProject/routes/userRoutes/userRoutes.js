@@ -9,7 +9,7 @@ router.get('/dashboard', function(req, res) {
 
   request.get(options, function(error, response, body) {
     var feed = JSON.parse(body)
-    console.log(feed.data)
+    //console.log(feed.data)
     res.render('dashboard', {
       feed: feed.data,
       title: 'dashboard',
@@ -60,7 +60,8 @@ router.post('/search', function(req,res){
   var search = req.body
 
   var options = {
-    url: 'https://api.instagram.com/v1/tags/search?q=' + search.search + '&access_token=' + req.session.access_token
+    url: 'https://api.instagram.com/v1/tags/'+ search.search + '/media/recent?access_token=' + req.session.access_token
+    //url: 'https://api.instagram.com/v1/tags/search?q=' + search.search + '&access_token=' + req.session.access_token
   }
   request.get(options, function(error, response, body){
     var results = JSON.parse(body)
@@ -68,7 +69,7 @@ router.post('/search', function(req,res){
       result: results.data,
       css: "/css/MichaelK.css"
     })
-    console.log(results)
+    //console.log(results)
   })
 
 })
