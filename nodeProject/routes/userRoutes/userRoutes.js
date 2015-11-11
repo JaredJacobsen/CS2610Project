@@ -49,12 +49,34 @@ router.post('/profile', function (req, res) {
 })
 
 router.get('/search', function(req, res) {
-  res.render('search')
+
+
+  res.render('search', {
+    css: "/css/MichaelK.css"
+  })
+})
+
+router.post('/search', function(req,res){
+  var search = req.body
+
+  var options = {
+    url: 'https://api.instagram.com/v1/tags/search?q=' + search.search + '&access_token=' + req.session.access_token
+  }
+  request.get(options, function(error, response, body){
+    var results = JSON.parse(body)
+    res.render('search', {
+      result: results.data,
+      css: "/css/MichaelK.css"
+    })
+    console.log(results)
+  })
+
 })
 
 router.get('/savedSearches', function(req, res) {
   res.render('savedSearches', {
-    title: "Saved Searches"
+    title: "Saved Searches",
+    css: "/css/MichaelK.css"
   })
 })
 
