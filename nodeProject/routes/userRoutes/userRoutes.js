@@ -9,7 +9,7 @@ router.get('/dashboard', function(req, res) {
 
   request.get(options, function(error, response, body) {
     var feed = JSON.parse(body)
-    console.log(feed.data.comments)
+    console.log(feed.data)
     res.render('dashboard', {
       feed: feed.data,
       title: 'dashboard',
