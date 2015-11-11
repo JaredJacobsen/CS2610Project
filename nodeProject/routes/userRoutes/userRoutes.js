@@ -9,10 +9,12 @@ router.get('/dashboard', function(req, res) {
 
   request.get(options, function(error, response, body) {
     var feed = JSON.parse(body)
+    console.log(feed.data.comments)
     res.render('dashboard', {
       feed: feed.data,
       title: 'dashboard',
-      css: "/css/JaredJ.css"
+      css: "/css/JaredJ.css",
+      user: req.session.username
     })
   })
 })
