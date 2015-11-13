@@ -2,13 +2,17 @@
 <div CLASS='searchBarHeader'>
 	<h2> Search hashtags below: </h2>
 </div>
+<div class="noResults">
+	{{noResults}}
+</div>
 <div CLASS='searchBar'>
 	<form class = "searhForm" action="" method = "post" id="search-form">
 		<input type="text" id="search" name="search" placeholder="Search" />
+		<input class="submit" type="submit" value="Submit">
 	</form>
 </div>
 <div CLASS="savedSearchButton">
-	<a href="savedSearches"> Saved Searches </a>
+	<button type="button" name="button"><a href="savedSearches"> Saved Searches </a></button>
 </div>
 
 <div class="results">

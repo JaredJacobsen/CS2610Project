@@ -19,19 +19,26 @@
 	float: left;
 }
 
-.savedSearchButton {
-	float: left;
+div.savedSearchButton {
+  width: 100px;
+	height: 40px;
 	margin-left: 10%;
-	margin-top: 30px;
-	line-height:35px;
-	background-color: #f2f5f6;
-	border-style: outset;
+	margin-top: 50px;
+  margin-right: auto;
 	float: left;
 }
+
 
 /*------------------------------------*\
 		Hashtag Search Results
 \*------------------------------------*/
+
+.noResults {
+	margin-left: 10%;
+	width: 100%;
+	margin-top: 5px;
+	color: red;
+}
 
 .displayHashtags {
 	float: left;

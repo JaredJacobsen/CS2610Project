@@ -19,6 +19,15 @@ div.welcome {
       margin-right: auto;
       margin-bottom: 10px;
     }
+
+div.error p {
+  color: red;
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
 /*------------------------------------*\
               ¡BUTTONS
 \*------------------------------------*/

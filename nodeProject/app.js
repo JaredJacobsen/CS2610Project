@@ -40,7 +40,12 @@ app.get('/authorize', function(req, res) {
   res.redirect(url)
 })
 
-app.get('/auth/finalize', function(req, res) {
+app.get('/auth/finalize', function(req, res, next) {
+
+	if (req.query.error == 'access_denied') {
+		return res.redirect('/')
+	}
+
   var post_data = {
     client_id: cfg.client_id,
     redirect_uri: cfg.redirect_uri,
@@ -55,13 +60,27 @@ app.get('/auth/finalize', function(req, res) {
   }
 
   request.post(options, function(error, response, body) {
-    var data = JSON.parse(body)
+		try {
+			var data = JSON.parse(body)
+		} catch (e) {
+			return next(e)
+		}
     req.session.access_token = data.access_token
 		req.session.username = data.user.username
     //console.log(data)
     res.redirect('/user/dashboard')
   })
 })
+
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('index', {
+        message: "An error occured. Please re-login.",
+				title: "Welcome to Instagram Viewer!",
+        error: {},
+				layout: 'base'
+    });
+});
 
 app.listen(port)
 
