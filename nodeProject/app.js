@@ -4,6 +4,9 @@ var express 	= require('express')
   , bodyParser = require('body-parser')
 	, querystring = require('querystring')
 	, session = require('express-session')
+	, MongoClient = require('mongodb')
+	, db = require('./db')
+	, assert = require('assert')
 	, cfg = require('./config')
 	, path      = require('path')
   , port      = 3000
@@ -67,8 +70,16 @@ app.get('/auth/finalize', function(req, res, next) {
 		}
     req.session.access_token = data.access_token
 		req.session.username = data.user.username
-    //console.log(data)
-    res.redirect('/user/dashboard')
+		//!!!!!Change later!!!!!
+		/*
+		Users.insert(user, function(result) {
+			console.log(result)
+			req.session.userId = result.ops[0]._id
+			res.redirect('/user/dashboard')
+		})
+		*/
+			res.redirect('/user/dashboard')
+
   })
 })
 
@@ -82,6 +93,16 @@ app.use(function(err, req, res, next) {
     });
 });
 
-app.listen(port)
+db.connect('mongodb://dbuser:password@ds031903.mongolab.com:31903/cs2610', function(err){
+  if(err) {
+    console.log('Unable to connect to Monogo')
+    process.exit(1)
+  }else{
+      app.listen(3000, function() {
+      console.log('Listening on port 3000')
+    })
+  }
+})
+//app.listen(port)
 
 console.log('Server running at http:127.0.0.1:' + port + '/')
