@@ -23,7 +23,7 @@ exports.find = function(id, callback) {
   //Get users collection
   var collection = db.get().collection('users')
   //Find user
-  collection.findOne({'_id': ObjectId(id)}, function(err, document) {
+  collection.findOne({'_id': id}, function(err, document) {
     assert.equal(err, null)
     console.log('Found 1 user document')
     callback(document)
@@ -49,7 +49,7 @@ exports.addTag = function(userId, tag, callback) {
   var collection = db.get().collection('users')
   //Add the tag
   collection.update(
-    {'_id': ObjectId(userId)},
+    {'_id': id},
     {$push: {tags: tag }},
     function(err, result) {
     assert.equal(err, null)
@@ -63,7 +63,7 @@ exports.removeTag = function(userId, tag, callback) {
   var collection = db.get().collection('users')
   //Add the tag
   collection.update(
-    {'_id': ObjectId(userId)},
+    {'_id': id},
     {$pull: {tags: tag }},
      user,
     function(err, result) {

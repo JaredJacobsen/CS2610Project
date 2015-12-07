@@ -6,6 +6,7 @@ var express 	= require('express')
 	, session = require('express-session')
 	, MongoClient = require('mongodb')
 	, db = require('./db')
+	, Users = require('./models/users')
 	, assert = require('assert')
 	, cfg = require('./config')
 	, path      = require('path')
@@ -68,18 +69,23 @@ app.get('/auth/finalize', function(req, res, next) {
 		} catch (e) {
 			return next(e)
 		}
+		var user = data.user
     req.session.access_token = data.access_token
+		req.session.userId = data.user.id
 		req.session.username = data.user.username
-		//!!!!!Change later!!!!!
-		/*
-		Users.insert(user, function(result) {
-			console.log(result)
-			req.session.userId = result.ops[0]._id
-			res.redirect('/user/dashboard')
-		})
-		*/
-			res.redirect('/user/dashboard')
 
+		user._id = user.id
+		delete user.id
+
+		Users.find(user._id, function(document) {
+			if(!document) {
+				Users.insert(user, function(result) {
+					res.redirect('/user/dashboard')
+				})
+			}else {
+				res.redirect('/user/dashboard')
+			}
+		})
   })
 })
 
@@ -103,6 +109,5 @@ db.connect('mongodb://dbuser:password@ds031903.mongolab.com:31903/cs2610', funct
     })
   }
 })
-//app.listen(port)
 
 console.log('Server running at http:127.0.0.1:' + port + '/')
