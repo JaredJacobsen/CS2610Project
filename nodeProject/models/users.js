@@ -1,4 +1,3 @@
-var ObjectId = require('mongodb').ObjectId
 var assert = require('assert')
 var db = require('../db')
 
@@ -32,8 +31,8 @@ exports.find = function(id, callback) {
 
 exports.update = function(user,callback) {
   //Get the users collection
+
   var collection = db.get().collection('users')
-  user._id = ObjectId(user._id)
   //Update the user
   collection.update({'_id': user._id},
    { $set: user},
