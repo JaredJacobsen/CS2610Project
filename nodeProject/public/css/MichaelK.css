@@ -7,25 +7,29 @@
 	margin-top: 50px;
 	float: left;
 	width: 100%;
-	font-size: 30px;
+	font-size: 20px;
 	font-weight: normal;
 	border-radius: 20px;
 }
 
 .searchBar {
 	margin-left: 10%;
-	width: 100%;
-	margin-top: 5px;
+	width: 190px;
+	margin-top: 10px;
 	float: left;
 }
 
-div.savedSearchButton {
+div.savedSearchButton button {
+	display: inline;
   width: 100px;
-	height: 40px;
+	height: 20px;
 	margin-left: 10%;
-	margin-top: 50px;
-  margin-right: auto;
+	margin-top: 10px;
+}
+
+.saveButton {
 	float: left;
+	margin-top: 10px;
 }
 
 
@@ -42,7 +46,7 @@ div.savedSearchButton {
 
 .displayHashtags {
 	float: left;
-	width: 25%;
+	width: 15%;
 	margin:1% 1% 1% 1%;
 	text-align: center;
 	line-height: 30px;
@@ -67,6 +71,19 @@ div.savedSearchButton {
 	margin-top: 50px;
 	margin-left: 25px;
 	width: 100%;
+}
+
+.displayHashtags .searchForm .submit {
+	border-style: hidden;
+	width: 100px;
+	height: 22px;
+	font-size: 20px
+}
+
+.displayHashtags .removeTagForm .submit {
+	border-style: hidden;
+	width: 45px;
+	height: 18px;
 }
 
 .savedSearches h1 {
