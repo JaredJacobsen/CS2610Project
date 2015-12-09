@@ -1,15 +1,6 @@
 <div class = savedSearches>
   <h1>Saved Searches:</h1>
-  <div CLASS="displayHashtags">
-    <a href="Search.html">#Some Searches</a>
-  </div>
-  <div CLASS="displayHashtags">
-    <a href="Search.html">#Web Development </a>
-  </div>
-  <div CLASS="displayHashtags">
-    <a href="Search.html">#CS 2610 </a>
-  </div>
-  <div CLASS="displayHashtags">
-    <a href="Search.html">#Javascript</a>
-  </div>
+  {{#each searches}}
+    {{> hashtag}}
+  {{/each}}
 </div>

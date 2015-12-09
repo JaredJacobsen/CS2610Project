@@ -7,8 +7,14 @@
 </div>
 <div CLASS='searchBar'>
 	<form class = "searhForm" action="" method = "post" id="search-form">
-		<input type="text" id="search" name="search" placeholder="Search" />
+		<input type="text" id="search" name="search" placeholder={{search}} />
 		<input class="submit" type="submit" value="Submit">
+	</form>
+</div>
+<div CLASS='saveButton'>
+	<form class = "searhForm" action="savedSearches" method = "post" id="search-form">
+		<input type="hidden" id="search" name="search" value={{search}} />
+		<input class="submit" type="submit" value="Save">
 	</form>
 </div>
 <div CLASS="savedSearchButton">

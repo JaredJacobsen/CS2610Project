@@ -45,7 +45,7 @@ exports.update = function(user,callback) {
   })
 }
 
-exports.addTag = function(userId, tag, callback) {
+exports.addTag = function(id, tag, callback) {
   var collection = db.get().collection('users')
   //Add the tag
   collection.update(
@@ -54,12 +54,12 @@ exports.addTag = function(userId, tag, callback) {
     function(err, result) {
     assert.equal(err, null)
     assert.equal(1, result.result.n)
-    console.log('Added 1 tag to a docuument in the users collection')
+    console.log('Added 1 tag to a document in the users collection')
     callback()
   })
 }
 
-exports.removeTag = function(userId, tag, callback) {
+exports.removeTag = function(id, tag, callback) {
   var collection = db.get().collection('users')
   //Add the tag
   collection.update(
@@ -69,7 +69,7 @@ exports.removeTag = function(userId, tag, callback) {
     function(err, result) {
     assert.equal(err, null)
     assert.equal(1, result.result.n)
-    console.log('Added 1 tag to a docuument in the users collection')
+    console.log('Removed 1 tag from a document in the users collection')
     callback()
   })
 

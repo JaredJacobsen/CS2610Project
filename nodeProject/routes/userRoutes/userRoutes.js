@@ -1,5 +1,6 @@
 var express = require('express');
 var request = require('request');
+var Users = require('../../models/users')
 var router = express.Router();
 
 router.get('/dashboard', function(req, res, next) {
@@ -67,7 +68,8 @@ router.post('/profile', function (req, res) {
 router.get('/search', function(req, res) {
   res.render('search', {
     css: "/css/MichaelK.css",
-    user: req.session.username
+    user: req.session.username,
+    search: "search"
   })
 })
 
@@ -83,7 +85,8 @@ router.post('/search', function(req, res, next){
       res.render('search', {
         noResults: "No Results",
         css: "/css/MichaelK.css",
-        user: req.session.username
+        user: req.session.username,
+        search: search.search
       })
     }
     else {
@@ -99,7 +102,8 @@ router.post('/search', function(req, res, next){
       res.render('search', {
         result: results.data,
         css: "/css/MichaelK.css",
-        user: req.session.username
+        user: req.session.username,
+        search: search.search
       })
       //console.log(results)
     }
@@ -107,11 +111,29 @@ router.post('/search', function(req, res, next){
 
 })
 
+//Breaks program if not logged in and accessing savedSearches directly
 router.get('/savedSearches', function(req, res) {
-  res.render('savedSearches', {
-    title: "Saved Searches",
-    css: "/css/MichaelK.css",
-    user: req.session.username
+  Users.find(req.session.userId, function(document) {
+    res.render('savedSearches', {
+      title: "Saved Searches",
+      css: "/css/MichaelK.css",
+      user: req.session.username,
+      searches: document.tags
+    })
+  })
+})
+
+router.post('/savedSearches', function(req, res) {
+  console.log(req.body.search)
+  Users.addTag(req.session.userId, req.body.search, function() {
+    Users.find(req.session.userId, function(document) {
+      res.render('savedSearches', {
+        title: "Saved Searches",
+        css: "/css/MichaelK.css",
+        user: req.session.username,
+        searches: document.tags
+      })
+    })
   })
 })
 
