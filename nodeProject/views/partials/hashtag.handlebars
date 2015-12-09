@@ -1,7 +1,11 @@
 <div class="displayHashtags">
   <!-- <a href="search">{{this}}</a> -->
-  <form class = "searhForm" action="search" method = "post" id="search-form">
+  <form class = "searchForm" action="search" method = "post" id="search-form">
 		<input type="hidden" id="search" name="search" value={{this}} />
 		<input class="submit" type="submit" value={{this}}>
+	</form>
+  <form class = "removeTagForm" action="removeTag" method = "post" id="removeTag-form">
+		<input type="hidden" id="removeTag" name="removeTag" value={{this}} />
+		<input class="submit" type="submit" value="Remove">
 	</form>
 </div>

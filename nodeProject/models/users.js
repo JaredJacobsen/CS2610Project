@@ -65,7 +65,6 @@ exports.removeTag = function(id, tag, callback) {
   collection.update(
     {'_id': id},
     {$pull: {tags: tag }},
-     user,
     function(err, result) {
     assert.equal(err, null)
     assert.equal(1, result.result.n)

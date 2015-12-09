@@ -124,8 +124,21 @@ router.get('/savedSearches', function(req, res) {
 })
 
 router.post('/savedSearches', function(req, res) {
-  console.log(req.body.search)
-  Users.addTag(req.session.userId, req.body.search, function() {
+  Users.addTag(req.session.userId, req.body.save, function() {
+    Users.find(req.session.userId, function(document) {
+      res.render('savedSearches', {
+        title: "Saved Searches",
+        css: "/css/MichaelK.css",
+        user: req.session.username,
+        searches: document.tags
+      })
+    })
+  })
+})
+
+router.post('/removeTag', function(req, res) {
+  console.log(req.body)
+  Users.removeTag(req.session.userId, req.body.removeTag, function() {
     Users.find(req.session.userId, function(document) {
       res.render('savedSearches', {
         title: "Saved Searches",
