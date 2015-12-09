@@ -29,40 +29,34 @@ router.get('/dashboard', function(req, res, next) {
 })
 
 router.get('/profile', function(req, res, next) {
-  var options = {
-    url: 'https://api.instagram.com/v1/users/self/?access_token=' + req.session.access_token
-  }
 
- request.get(options, function(error, response, body) {
-   try {
-     var userInfo = JSON.parse(body)
-     if (userInfo.meta.code > 200) {
-       return next(userInfo.meta.error_message);
-     }
-   }
-   catch(e) {
-     return next(e)
-   }
-    res.render('profile', {
-      title: "User Profile",
-      userInfo: userInfo.data,
-      css: "/css/jeannemunk.css",
-      user: req.session.username
+    if(req.session.userId){
+    //Find user
+    Users.find(req.session.userId, function(document) {
+      if(!document) return res.redirect('/')
+      res.render('profile', {
+        users: document,
+        css: "/css/jeannemunk.css",
+        user: document.username
+      })
     })
-  })
+    }else {
+    res.redirect('/profile')
+  }
 })
 
 router.post('/profile', function (req, res) {
-  var form = req.body
-  if(form.userName == 'jeannemunk'){
-    res.render('profile', {
-      username: form.userName
+  var user = req.body
+    //update the user
+    Users.update(user, function(){
+      //Render the Update
+      res.render('profile', {
+        users: user,
+        user: user.username,
+        success: 'Sucessfully updated the user!',
+        css: "/css/jeannemunk.css",
+      })
     })
-  }else{
-    res.render('profile', {
-      error: 'Incorrect login details'
-    })
-  }
 })
 
 router.get('/search', function(req, res) {

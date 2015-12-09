@@ -72,7 +72,6 @@ app.get('/auth/finalize', function(req, res, next) {
 		var user = data.user
     req.session.access_token = data.access_token
 		req.session.userId = data.user.id
-		req.session.username = data.user.username
 
 		user._id = user.id
 		delete user.id
@@ -80,9 +79,11 @@ app.get('/auth/finalize', function(req, res, next) {
 		Users.find(user._id, function(document) {
 			if(!document) {
 				Users.insert(user, function(result) {
+					req.session.username = data.user.username
 					res.redirect('/user/dashboard')
 				})
 			}else {
+				req.session.username = document.username
 				res.redirect('/user/dashboard')
 			}
 		})

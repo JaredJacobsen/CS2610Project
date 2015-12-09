@@ -1,26 +1,36 @@
 </div>
 <div class="profileImage">
-  <img src="{{ userInfo.profile_picture }}" alt="Profile Pic" />
-
+  <img src="{{ users.profile_picture }}" alt="Profile Pic" />
 </div>
 <div class="username">
-  <h2> {{userInfo.username}}</h2>
+  <h2> {{users.username}}</h2>
 </div>
 <div class="input">
   <p style="color: red;"> {{error}} </p>
+  {{#if success}}
+    <p style="color: green;">
+      {{success}}
+    </p>
+  {{/if}}
 
   <form class="information" action="" method="post">
+    <input type="hidden" name="_id" value="{{users._id}}">
+    <input type="hidden" name="profile_picture" value="{{ users.profile_picture }}">
     <p>
-      <label for="userName">Name: </label>
-      <input type="text" name="userName">
+      <label for="username">UserName:</label>
+      <input type="text" name="username" value="{{users.username}}" placeholder="Username">
     </p>
     <p>
-      <label for="email">Email: </label>
-      <input type="text" name="email">
+      <label for="fullname">Full Name</label>
+      <input type="text" name="full_name" value="{{users.full_name}}" placeholder="Full Name">
     </p>
     <p>
       <label for="bio">Bio: </label>
-      <input type="text" name="bio">
+      <input type="text" name="bio" value="{{users.bio}}" placeholder="Bio">
+    </p>
+    <p>
+      <label for="website">Website: </label>
+      <input type="text" name="email" value="{{users.email}}" placeholder="Email">
     </p>
     <input class="submit" type="submit" value="Submit">
     <br>
