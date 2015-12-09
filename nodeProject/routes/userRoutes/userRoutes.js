@@ -69,7 +69,8 @@ router.get('/search', function(req, res) {
   res.render('search', {
     css: "/css/MichaelK.css",
     user: req.session.username,
-    search: "search"
+    search: "search",
+    saveButtonType: "hidden"
   })
 })
 
@@ -86,7 +87,8 @@ router.post('/search', function(req, res, next){
         noResults: "No Results",
         css: "/css/MichaelK.css",
         user: req.session.username,
-        search: search.search
+        search: search.search,
+        saveButtonType: "hidden"
       })
     }
     else {
@@ -103,7 +105,8 @@ router.post('/search', function(req, res, next){
         result: results.data,
         css: "/css/MichaelK.css",
         user: req.session.username,
-        search: search.search
+        search: search.search,
+        saveButtonType: "submit"
       })
       //console.log(results)
     }
