@@ -74,6 +74,7 @@ div.savedSearchButton button {
 }
 
 .displayHashtags .searchForm .submit {
+	background-color: #FFFFFF;
 	border-style: hidden;
 	width: 100px;
 	height: 22px;
@@ -81,6 +82,8 @@ div.savedSearchButton button {
 }
 
 .displayHashtags .removeTagForm .submit {
+	background-color: #FFFFFF;
+	color: #800000;
 	border-style: hidden;
 	width: 45px;
 	height: 18px;

@@ -111,12 +111,22 @@ router.post('/search', function(req, res, next){
 //Breaks program if not logged in and accessing savedSearches directly
 router.get('/savedSearches', function(req, res) {
   Users.find(req.session.userId, function(document) {
-    res.render('savedSearches', {
-      title: "Saved Searches",
-      css: "/css/MichaelK.css",
-      user: req.session.username,
-      searches: document.tags
-    })
+    if (document == null) {
+      res.render('index', {
+          message: "An error occured. Please re-login.",
+  				title: "Welcome to Instagram Viewer!",
+          error: {},
+  				layout: 'base'
+      });
+    }
+    else {
+      res.render('savedSearches', {
+        title: "Saved Searches",
+        css: "/css/MichaelK.css",
+        user: req.session.username,
+        searches: document.tags
+      })
+    }
   })
 })
 
@@ -134,7 +144,6 @@ router.post('/savedSearches', function(req, res) {
 })
 
 router.post('/removeTag', function(req, res) {
-  console.log(req.body)
   Users.removeTag(req.session.userId, req.body.removeTag, function() {
     Users.find(req.session.userId, function(document) {
       res.render('savedSearches', {
